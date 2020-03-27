@@ -4,7 +4,12 @@
 # Player movement
 # © 2019 KidsCanCode LLC / All rights reserved.
 
+# Week of march 23 - Lore
+# Modularity, Github, import as
+
 import pygame as pg
+from pygame.sprite import Group
+# from pg.sprite import Group
 import random
 from settings import *
 from sprites import *
@@ -21,9 +26,18 @@ class Game:
 
     def new(self):
         # start a new game
-        self.all_sprites = pg.sprite.Group()
-        self.player = Player()
+        self.all_sprites = Group()
+        self.platforms = pg.sprite.Group()
+        self.player = Player(self)
         self.all_sprites.add(self.player)
+        ground = Platform(0, HEIGHT-40, WIDTH, 40)
+        plat1 = Platform(200, 400, 150, 20)
+        self.all_sprites.add(ground)
+        self.platforms.add(ground)
+        self.all_sprites.add(plat1)
+        self.platforms.add(plat1)
+        # self.all_sprites.add(plat2)
+        # self.platforms.add(plat2)
         self.run()
 
     def run(self):
@@ -38,6 +52,12 @@ class Game:
     def update(self):
         # Game Loop - Update
         self.all_sprites.update()
+        hits = pg.sprite.spritecollide(self.player, self.platforms, False)
+        if hits:
+            # print("it collided")
+            self.player.vel.y = 0
+            self.player.pos.y = hits[0].rect.top+1
+
 
     def events(self):
         # Game Loop - events
