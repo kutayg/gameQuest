@@ -1,14 +1,13 @@
 # Sprite classes for platform game
 # © 2019 KidsCanCode LLC / All rights reserved.
-
-
+# mr cozort planted a landmine by importing Sprite directly...
 import pygame as pg
 from pygame.sprite import Sprite
 from settings import *
 vec = pg.math.Vector2
 
 class Player(Sprite):
-    # include game parameter to pass game class as argument in main
+    # include game parameter to pass game class as argument in main...
     def __init__(self, game):
         Sprite.__init__(self)
         self.game = game
@@ -38,9 +37,9 @@ class Player(Sprite):
             self.acc.y = -PLAYER_ACC
         if keys[pg.K_s]:
             self.acc.y = PLAYER_ACC
+        # ALERT - Mr. Cozort did this WAY differently than Mr. Bradfield...
         if keys[pg.K_SPACE]:
             self.jump()
-
 
         # apply friction
         self.acc.x += self.vel.x * PLAYER_FRICTION
@@ -58,7 +57,7 @@ class Player(Sprite):
         if self.pos.y > HEIGHT:
             self.pos.y = 0
 
-            self.rect.midbottom = self.pos
+        self.rect.midbottom = self.pos
 class Platform(Sprite):
     def __init__(self, x, y, w, h):
         Sprite.__init__(self)
