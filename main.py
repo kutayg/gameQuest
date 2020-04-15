@@ -5,7 +5,9 @@
 # © 2019 KidsCanCode LLC / All rights reserved.
 
 # Week of march 23 - Lore
-# Modularity, Github, import as, 
+# Modularity, Github, import as
+# Modularity is file dependencies
+# Classes, methods, functions, data types
 
 import pygame as pg
 from pygame.sprite import Group
@@ -14,7 +16,7 @@ import random
 from settings import *
 from sprites import *
 
-# this is the game class, we create a new game at the bottom of the code...
+# this is the game class
 class Game:
     def __init__(self):
         # initialize game window, etc
@@ -31,10 +33,12 @@ class Game:
         self.platforms = pg.sprite.Group()
         self.player = Player(self)
         self.all_sprites.add(self.player)
+        # give dimensions for all platforms and ground
         ground = Platform(0, HEIGHT-40, WIDTH, 40)
         plat1 = Platform(200, 400, 150, 20)
         plat2 = Platform(150, 300, 150, 20)
-        plat3 = Platform(10, 200, 400, 20)
+        plat3 = Platform(100, 200, 150, 20)
+        plat4 = Platform(50, 100, 150, 20)
         self.all_sprites.add(ground)
         self.platforms.add(ground)
         self.all_sprites.add(plat1)
@@ -44,6 +48,8 @@ class Game:
         # you need to add new instances of the platform class to groups or it wont update or draw
         self.all_sprites.add(plat3)
         self.platforms.add(plat3)
+        self.all_sprites.add(plat4)
+        self.platforms.add(plat4)
         # for plat in range(1,10):
         #     plat = Platform(random.randint(0, WIDTH), random.randint(0, HEIGHT), 200, 20)
         #     self.all_sprites.add(plat)
@@ -88,6 +94,7 @@ class Game:
 
     def draw(self):
         # Game Loop - draw
+        # makes background screen aqua in color
         self.screen.fill(AQUA)
         self.all_sprites.draw(self.screen)
         # *after* drawing everything, flip the display
@@ -101,6 +108,7 @@ class Game:
         # game over/continue
         pass
 
+# create new game
 g = Game()
 g.show_start_screen()
 while g.running:
