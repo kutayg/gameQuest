@@ -24,11 +24,13 @@ class Player(Sprite):
         self.hitpoints = 100
     def myMethod(self):
         pass
+    # player's shape continuously extends until it jumps, then the player resets.
     def jump(self):
         # allows player to jump
         self.rect.x += 1
         hits = pg.sprite.spritecollide(self, self.game.platforms, False)
         self.rect.x -= 1
+        self.game.screen.fill(AQUA)
         # if the player hits a platform, it ricochets and comes back down (cannot go through platform)
         if hits: 
             self.vel.y = -15

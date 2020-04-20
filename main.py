@@ -95,7 +95,7 @@ class Game:
     def draw(self):
         # Game Loop - draw
         # makes background screen aqua in color
-        self.screen.fill(AQUA)
+        # self.screen.fill(AQUA)
         self.all_sprites.draw(self.screen)
         # *after* drawing everything, flip the display
         pg.display.flip()
