@@ -1,3 +1,4 @@
+'''
 import pygame
 from os import path
  
@@ -25,3 +26,5 @@ options_onnotifier = pygame.image.load(game_folder + r"\Emate's Arc\Options Scre
 options_musictext = pygame.image.load(game_folder + r"\Emate's Arc\Options Screen Items\Emate's Arc Music Text.png").convert_alpha()
 audio_title = pygame.image.load(game_folder + r"\Emate's Arc\Options Screen Items\Emate's Arc Audio Title.png").convert_alpha()
 main_menu_music = (game_folder + r"\Emate's Arc\Main Menu Items\Main Menu Music.mp3")
+
+'''

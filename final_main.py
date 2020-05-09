@@ -23,6 +23,7 @@ class Game:
         self.all_sprites = pg.sprite.Group()
         self.walls = pg.sprite.Group()
         self.player = Player(self, 10, 10)
+        self.enemy = Enemy(self, 10, 10)
         for x in range(10, 20):
             Wall(self, x, 5)
  
@@ -71,7 +72,7 @@ class Game:
                     self.player.move(dy=-1)
                 if event.key == pg.K_DOWN:
                     self.player.move(dy=1)
- 
+
     def show_start_screen(self):
         pass
  

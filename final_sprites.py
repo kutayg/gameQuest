@@ -1,4 +1,5 @@
 import pygame as pg
+import random as randrange
 from final_settings import *
  
 class Player(pg.sprite.Sprite):
@@ -16,6 +17,21 @@ class Player(pg.sprite.Sprite):
         self.x += dx
         self.y += dy
  
+    def update(self):
+        self.rect.x = self.x * TILESIZE
+        self.rect.y = self.y * TILESIZE
+
+class Enemy(pg.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.groups = game.all_sprites
+        pg.sprite.Sprite.__init__(self, self.groups)
+        self.game = game
+        self.image = pg.Surface((TILESIZE, TILESIZE))
+        self.image.fill(YELLOW)
+        self.rect = self.image.get_rect()
+        self.x = x
+        self.y = y        
+
     def update(self):
         self.rect.x = self.x * TILESIZE
         self.rect.y = self.y * TILESIZE
