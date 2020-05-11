@@ -1,24 +1,19 @@
-# © 2019 KidsCanCode LLC / All rights reserved.
-
-# Game options/settings
-TITLE = "Jumpy!"
-WIDTH = 480
-HEIGHT = 600
-FPS = 60
-
-# Environment options
-GRAVITY = 9.8
-
-# Player properties
-PLAYER_ACC = 0.5
-PLAYER_FRICTION = -0.01
-PLAYER_JUMPPOWER = 10
-
-# Define colors
-# I changed the screen color to aqua, the platform color to orange, and the player color to purple
+# define some colors (R, G, B)
 WHITE = (255, 255, 255)
-AQUA = (0, 255, 255)
+BLACK = (0, 0, 0)
+DARKGREY = (40, 40, 40)
+LIGHTGREY = (100, 100, 100)
+GREEN = (0, 255, 0)
 RED = (255, 0, 0)
-ORANGE = (255, 101, 0)
-BLUE = (0, 0, 255)
-PURPLE = (128, 0, 128)
+YELLOW = (255, 255, 0)
+
+# game settings
+WIDTH = 1024   # 16 * 64 or 32 * 32 or 64 * 16
+HEIGHT = 768  # 16 * 48 or 32 * 24 or 64 * 12
+FPS = 60
+TITLE = "Tilemap Demo"
+BGCOLOR = DARKGREY
+
+TILESIZE = 32
+GRIDWIDTH = WIDTH / TILESIZE
+GRIDHEIGHT = HEIGHT / TILESIZE
